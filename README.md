@@ -23,10 +23,7 @@ const providers = [
 
 
 ```js
-Route.get('/response', () => {
-  return response.apiSuccess('some message')
-})
-
+Route.get('/response', ({ response }) => response.apiSuccess('some message'))
 ```
 
 ## Function
