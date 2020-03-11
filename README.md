@@ -29,15 +29,15 @@ Route.get('/response', ({ response }) => response.apiSuccess('some message'))
 ## Function
 
 ```js
-  unauthorized(errorMessages)
-  validateFailed(errorMessages)
-  internalServerError(errorMessages)
-  notFound(errorMessages)
-  apiCreated(item, meta)
-  apiUpdated(item, meta)
-  apiDeleted(item, meta)
-  apiItem(item, meta) // response get by id
-  apiCollection(items, meta) // response get all
-  apiSuccess(data, meta, message)// response normal
+  unauthorized()
+  notFound()
+  validateFailed(errorMessages = [])
+  internalServerError()
+  apiCreated(item)
+  apiUpdated(item)
+  apiDeleted()
+  apiItem(item) // response get by id
+  apiCollection(items) // response get all
+  apiSuccess(message = 'Success', data = null)// response normal
 ```
 

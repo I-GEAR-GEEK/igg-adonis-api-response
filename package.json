@@ -1,6 +1,6 @@
 {
   "name": "igg-adonis-api-response",
-  "version": "0.0.2",
+  "version": "1.0.1",
   "description": "Standard response igg",
   "main": "index.js",
   "license": "MIT",
