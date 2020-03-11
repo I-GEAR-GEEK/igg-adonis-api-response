@@ -1,9 +1,10 @@
 {
   "name": "igg-adonis-api-response",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Standard response igg",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://github.com/igeargeek/igg-adonis-api-response",
   "dependencies": {
     "@adonisjs/fold": "^4.0.9"
   }
