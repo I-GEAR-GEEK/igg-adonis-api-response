@@ -1,64 +1,76 @@
 
 const Response = use('Adonis/Src/Response')
 
-Response.macro('unauthorized', function () {
+Response.macro('unauthorized', function (message = 'Unauthorized') {
   this.status(401).json({
-    message: 'Unauthorized',
+    message,
   })
 })
 
-Response.macro('notFound', function () {
+Response.macro('notFound', function (message = 'Not Found') {
   this.status(404).json({
-    message: 'Not Found',
+    message,
   })
 })
 
-Response.macro('validateFailed', function (errorMessages) {
+Response.macro('badRequest', function (message = 'Bad request') {
+  this.status(400).json({
+    message,
+  })
+})
+
+Response.macro('unprocessableEntity', function (message = 'Unprocessable Entity') {
   this.status(422).json({
-    message: 'Validation failed',
+    message,
+  })
+})
+
+Response.macro('validateFailed', function (errorMessages, message = 'Validation failed') {
+  this.status(422).json({
+    message,
     errors: errorMessages,
   })
 })
 
-Response.macro('internalServerError', function () {
+Response.macro('internalServerError', function (message = 'Internal server error') {
   this.status(500).json({
-    message: 'Internal server error',
+    message,
   })
 })
 
-Response.macro('apiCreated', function (item) {
+Response.macro('apiCreated', function (item, message = 'Created successfully') {
   this.status(201).json({
-    message: 'Created successfully',
+    message,
     data: item,
   })
 })
 
-Response.macro('apiUpdated', function (item) {
+Response.macro('apiUpdated', function (item, message = 'Updated successfully') {
   this.status(202).json({
-    message: 'Updated successfully',
+    message,
     data: item,
   })
 })
 
 
-Response.macro('apiDeleted', function () {
+Response.macro('apiDeleted', function (message = 'No content') {
   this.status(204).json({
-    message: 'No content',
+    message,
   })
 })
 
 // response get by id
-Response.macro('apiItem', function (item) {
+Response.macro('apiItem', function (item, message = 'Data retrieval successfully') {
   this.status(200).json({
-    message: 'Data retrieval successfully',
+    message,
     data: item,
   })
 })
 
 // response get all
-Response.macro('apiCollection', function (items) {
+Response.macro('apiCollection', function (items, message = 'Data retrieval successfully') {
   this.status(200).json({
-    message: 'Data retrieval successfully',
+    message,
     data: items,
   })
 })
@@ -68,5 +80,13 @@ Response.macro('apiSuccess', function (message = 'Success', data = null) {
   this.status(200).json({
     message: message,
     data,
+  })
+})
+
+// response normal
+Response.macro('apiPagination', function (data = {}, message = 'Data retrieval successfully') {
+  this.status(200).json({
+    message: message,
+    ...data,
   })
 })
