@@ -83,10 +83,14 @@ Response.macro('apiSuccess', function (message = 'Success', data = null) {
   })
 })
 
-// response normal
-Response.macro('apiPagination', function (data = {}, message = 'Data retrieval successfully') {
+// response pagination
+Response.macro('apiPagination', function (data, message = 'Data retrieval successfully') {
   this.status(200).json({
     message: message,
-    ...data,
+    total: data.pages.total,
+    page: data.pages.page,
+    perPage: data.pages.perPage,
+    lastPage: data.pages.lastPage,
+    data: [...data.rows]
   })
 })
