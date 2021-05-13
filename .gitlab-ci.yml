@@ -1,9 +1,0 @@
-image: node:12.14.1-alpine
-
-publish_npm:
-  only:
-    - /^release.*/
-  stage: deploy
-  script:
-    - npm config set //registry.npmjs.org/:_authToken 246922b4-c576-4095-a167-c0005881d675
-    - npm publish
