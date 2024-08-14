@@ -19,6 +19,12 @@ Response.macro('badRequest', function (message = 'Bad request') {
   })
 })
 
+Response.macro('paymentRequired', function (message = 'Payment Required') {
+  this.status(402).json({
+    message,
+  })
+})
+
 Response.macro('unprocessableEntity', function (message = 'Unprocessable Entity') {
   this.status(422).json({
     message,
