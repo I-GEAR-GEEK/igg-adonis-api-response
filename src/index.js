@@ -97,6 +97,7 @@ Response.macro('apiPagination', function (data, message = 'Data retrieval succes
     page: data.pages.page,
     perPage: data.pages.perPage,
     lastPage: data.pages.lastPage,
-    data: [...data.rows]
+    data: [...data.rows],
+    meta: data.meta
   })
 })
